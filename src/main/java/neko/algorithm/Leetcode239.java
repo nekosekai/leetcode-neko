@@ -21,7 +21,7 @@ public class Leetcode239 {
   }
 
   public int[] maxSlidingWindow(int[] nums, int k) {
-    if(nums.length == 0 || k == 0) {
+    if (nums.length == 0 || k == 0) {
       return new int[0];
     }
     int[] result = new int[nums.length - k + 1];
@@ -31,13 +31,13 @@ public class Leetcode239 {
         return o2 - o1;
       }
     });
-    for(int i = 0; i < nums.length; ++i) {
+    for (int i = 0; i < nums.length; ++i) {
       int start = i - k;
-      if(start >= 0) {
+      if (start >= 0) {
         maxHeap.remove(nums[start]);
       }
       maxHeap.add(nums[i]);
-      if(maxHeap.size() == k) {
+      if (maxHeap.size() == k) {
         result[i - k + 1] = maxHeap.peek();
       }
     }
