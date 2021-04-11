@@ -56,7 +56,6 @@ package neko.algorithm;
 
 import java.util.ArrayList;
 import java.util.List;
-import sun.reflect.generics.tree.Tree;
 
 public class Leetcode94 {
 
@@ -66,19 +65,18 @@ public class Leetcode94 {
     TreeNode root = new TreeNode(1, null, right);
     Leetcode94 leetcode94 = new Leetcode94();
     List<Integer> result = leetcode94.inorderTraversal(root);
+    System.out.println(result);
   }
 
   public List<Integer> inorderTraversal(TreeNode root) {
     List<Integer> result = new ArrayList<Integer>();
     if (root != null) {
       if (root.left != null) {
-        List<Integer> leftResult = inorderTraversal(root.left);
-        result.addAll(leftResult);
+        result.addAll(inorderTraversal(root.left));
       }
       result.add(root.val);
       if (root.right != null) {
-        List<Integer> rightResult = inorderTraversal(root.right);
-        result.addAll(rightResult);
+        result.addAll(inorderTraversal(root.right));
       }
     }
     return result;
